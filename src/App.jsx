@@ -2,16 +2,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Daily from './pages/Daily';
 import Weekly from './pages/Weekly';
+import TimesheetSidebar from './components/Sidebar';
 import BiWeekly from './pages/BiWeekly';
 import Monthly from './pages/Monthly';
-import TimesheetSidebar from './components/Sidebar';
 
 function App() {
   return (
+
     <Router>
       <div style={{ display: 'flex' }}>
         <TimesheetSidebar />
-        <div style={{ padding: '20px', flex: 1 }}>
+        <div className='bg-light' style={{ flex: 1}}>
           <Routes>
             <Route path="/daily" element={<Daily />} />
             <Route path="/weekly" element={<Weekly />} />

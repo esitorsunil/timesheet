@@ -1,3 +1,3 @@
-export default function Weekly() {
-  return <h2>Weekly Timesheet</h2>;
+export default function BiWeekly() {
+  return <h2>BiWeekly Timesheet</h2>;
 }

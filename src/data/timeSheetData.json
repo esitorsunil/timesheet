@@ -1,0 +1,258 @@
+{
+  "timesheet": {
+    "daily": {
+      "title": "Daily Timesheet",
+      "description": "View detailed task and project breakdowns for each employee by date.",
+      "entries": [
+        {
+          "employeeId": 1,
+          "employeeName": "Alice Johnson",
+          "date": "2025-06-27",
+          "projects": [
+            {
+              "projectName": "Website Redesign",
+              "tasks": [
+                {
+                  "taskName": "UI Implementation",
+                  "startTime": "09:30 AM",
+                  "endTime": "11:30 AM",
+                  "duration": "3h"
+                },
+                {
+                  "taskName": "Responsive Testing",
+                  "startTime": "12:00 PM",
+                  "endTime": "02:00 PM",
+                  "duration": "2h"
+                }
+              ]
+            }
+          ],
+          "totalHours": "5h"
+        },
+        {
+          "employeeId": 2,
+          "employeeName": "Brian Lee",
+          "date": "2025-06-25",
+          "projects": [
+            {
+              "projectName": "Mobile App Development",
+              "tasks": [
+                {
+                  "taskName": "API Integration",
+                  "startTime": "09:00 AM",
+                  "endTime": "12:00 PM",
+                  "duration": "3h"
+                },
+                {
+                  "taskName": "Unit Testing",
+                  "startTime": "01:00 PM",
+                  "endTime": "03:00 PM",
+                  "duration": "2h"
+                }
+              ]
+            }
+          ],
+          "totalHours": "5h"
+        },
+        {
+          "employeeId": 3,
+          "employeeName": "Chris Martin",
+          "date": "2025-06-25",
+          "projects": [
+            {
+              "projectName": "Data Migration",
+              "tasks": [
+                {
+                  "taskName": "Database Backup",
+                  "startTime": "10:00 AM",
+                  "endTime": "12:00 PM",
+                  "duration": "2h"
+                },
+                {
+                  "taskName": "Data Cleanup",
+                  "startTime": "01:30 PM",
+                  "endTime": "03:30 PM",
+                  "duration": "2h"
+                }
+              ]
+            }
+          ],
+          "totalHours": "4h"
+        },
+        {
+          "employeeId": 4,
+          "employeeName": "Diana Patel",
+          "date": "2025-06-25",
+          "projects": [
+            {
+              "projectName": "Marketing Dashboard",
+              "tasks": [
+                {
+                  "taskName": "Chart Configuration",
+                  "startTime": "08:00 AM",
+                  "endTime": "10:00 AM",
+                  "duration": "2h"
+                },
+                {
+                  "taskName": "Data Source Mapping",
+                  "startTime": "10:30 AM",
+                  "endTime": "01:00 PM",
+                  "duration": "2.5h"
+                }
+              ]
+            }
+          ],
+          "totalHours": "4.5h"
+        },
+        {
+          "employeeId": 5,
+          "employeeName": "Ethan Thomas",
+          "date": "2025-06-25",
+          "projects": [
+            {
+              "projectName": "Client Portal",
+              "tasks": [
+                {
+                  "taskName": "Bug Fixing",
+                  "startTime": "09:00 AM",
+                  "endTime": "11:00 AM",
+                  "duration": "2h"
+                },
+                {
+                  "taskName": "Feature Enhancement",
+                  "startTime": "11:30 AM",
+                  "endTime": "02:00 PM",
+                  "duration": "2.5h"
+                }
+              ]
+            }
+          ],
+          "totalHours": "4.5h"
+        }
+      ]
+    },
+    "biweekly": {
+      "title": "Bi-Weekly Timesheet",
+      "description": "Shows team members' timesheet for a 14-day period.",
+      "range": "2025-06-10 to 2025-06-23",
+      "entries": [
+        {
+          "employeeId": 1,
+          "employeeName": "Alice Johnson",
+          "totalHours": 32,
+          "summary": [
+            { "date": "2025-06-11", "hours": 5 },
+            { "date": "2025-06-12", "hours": 4 },
+            { "date": "2025-06-15", "hours": 3 },
+            { "date": "2025-06-17", "hours": 5 },
+            { "date": "2025-06-18", "hours": 5 },
+            { "date": "2025-06-19", "hours": 5 },
+            { "date": "2025-06-20", "hours": 5 }
+          ]
+        },
+        {
+          "employeeId": 2,
+          "employeeName": "Brian Lee",
+          "totalHours": 38.5,
+          "summary": [
+            { "date": "2025-06-10", "hours": 8 },
+            { "date": "2025-06-11", "hours": 7.5 },
+            { "date": "2025-06-12", "hours": 8 },
+            { "date": "2025-06-13", "hours": 8 },
+            { "date": "2025-06-14", "hours": 7 }
+          ]
+        },
+        {
+          "employeeId": 3,
+          "employeeName": "Chris Martin",
+          "totalHours": 76,
+          "summary": [
+            { "date": "2025-06-10", "hours": 8 },
+            { "date": "2025-06-11", "hours": 7 },
+            { "date": "2025-06-12", "hours": 8 },
+            { "date": "2025-06-13", "hours": 8 },
+            { "date": "2025-06-14", "hours": 0 },
+            { "date": "2025-06-17", "hours": 8 },
+            { "date": "2025-06-18", "hours": 8 },
+            { "date": "2025-06-19", "hours": 7 },
+            { "date": "2025-06-20", "hours": 8 },
+            { "date": "2025-06-21", "hours": 6 }
+          ]
+        },
+        {
+          "employeeId": 4,
+          "employeeName": "Diana Patel",
+          "totalHours": 70,
+          "summary": [
+            { "date": "2025-06-10", "hours": 7 },
+            { "date": "2025-06-11", "hours": 7 },
+            { "date": "2025-06-12", "hours": 8 },
+            { "date": "2025-06-13", "hours": 8 },
+            { "date": "2025-06-17", "hours": 7 },
+            { "date": "2025-06-18", "hours": 8 },
+            { "date": "2025-06-19", "hours": 8 },
+            { "date": "2025-06-20", "hours": 7 }
+          ]
+        },
+        {
+          "employeeId": 5,
+          "employeeName": "Ethan Thomas",
+          "totalHours": 68,
+          "summary": [
+            { "date": "2025-06-10", "hours": 7 },
+            { "date": "2025-06-11", "hours": 6 },
+            { "date": "2025-06-12", "hours": 7 },
+            { "date": "2025-06-13", "hours": 6 },
+            { "date": "2025-06-17", "hours": 7 },
+            { "date": "2025-06-18", "hours": 6 },
+            { "date": "2025-06-19", "hours": 7 },
+            { "date": "2025-06-20", "hours": 7 },
+            { "date": "2025-06-21", "hours": 5 }
+          ]
+        }
+      ]
+    },
+    "monthly": {
+      "title": "Monthly Timesheet",
+      "description": "See the total hours worked by employees for a selected month. To filter by employee, choose from member option.",
+      "month": "June 2025",
+      "entries": [
+        {
+          "employeeId": 1,
+          "employeeName": "Alice Johnson",
+          "totalHours": 84,
+          "workedDays": 12,
+          "averageDailyHours": 7
+        },
+        {
+          "employeeId": 2,
+          "employeeName": "Brian Lee",
+          "totalHours": 160,
+          "workedDays": 20,
+          "averageDailyHours": 8
+        },
+        {
+          "employeeId": 3,
+          "employeeName": "Chris Martin",
+          "totalHours": 152,
+          "workedDays": 19,
+          "averageDailyHours": 8
+        },
+        {
+          "employeeId": 4,
+          "employeeName": "Diana Patel",
+          "totalHours": 152,
+          "workedDays": 20,
+          "averageDailyHours": 7.6
+        },
+        {
+          "employeeId": 5,
+          "employeeName": "Ethan Thomas",
+          "totalHours": 160,
+          "workedDays": 22,
+          "averageDailyHours": 7.27
+        }
+      ]
+    }
+  }
+}

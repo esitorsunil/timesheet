@@ -58,21 +58,7 @@ export default function Daily() {
     setSelectedDate(newDate.toISOString().split("T")[0]);
   };
 
-  const parseTime = (timeStr) => {
-  const [time, modifier] = timeStr.split(" ");
-  let [hours, minutes] = time.split(":");
-  hours = parseInt(hours);
-  minutes = parseInt(minutes);
-
-  if (modifier === "PM" && hours !== 12) {
-    hours += 12;
-  }
-  if (modifier === "AM" && hours === 12) {
-    hours = 0;
-  }
-  return hours + minutes / 60;
-};
-
+  // Collect all tasks from filteredEntries
   const timesheetRows = filteredEntries.flatMap((entry) =>
     entry.projects.flatMap((project) =>
       project.tasks
@@ -94,11 +80,9 @@ export default function Daily() {
     )
   );
 
-  const hoursRange = Array.from({ length: 15 }, (_, i) => 9 + i); // 9am to 11pm
-  const hourHeight = 75;
-
   return (
     <div className="container-fluid px-5 mt-4 bg-light">
+      {/* Heading */}
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2 className="mb-0">Daily Timesheet</h2>
         <button
@@ -110,6 +94,7 @@ export default function Daily() {
         </button>
       </div>
 
+      {/* Filters */}
       <div className="row align-items-center g-3 mb-4 mt-4">
         {selectedMember && (
           <div className="col-md-auto">
@@ -229,82 +214,46 @@ export default function Daily() {
             </div>
           ))
         ) : (
-          <div className="">
-           
+          <div className="alert alert-warning">
+            No entries match the selected filters.
           </div>
         )}
       </div>
-{timesheetRows.length === 0 ? (
-  <div className="d-flex flex-column align-items-center justify-content-center py-5 text-muted">
-    <img
-      src="https://demo.apploye.com/static/media/no_data_artwork.c43ca210523019ca28270a568239aae0.svg"
-      alt="No Data"
-      style={{ maxWidth: "600px", marginBottom: "16px",  height: "260px"}}
-    />
-    <h6>No timesheet entries for this date</h6>
-  </div>
-) : (
-  <div className="timeline-container bg-white rounded border p-3 mt-4 position-relative">
-    <div className="d-flex pb-2 mb-2 fw-semibold text-secondary">
-      <div style={{ width: "120px" }}></div>
-      <div className="flex-grow-1">Project & Task</div>
-      <div style={{ width: "120px" }}>Start</div>
-      <div style={{ width: "120px" }}>End</div>
-      <div style={{ width: "80px" }}>Total</div>
-    </div>
 
-    <div
-      className="position-relative"
-      style={{ minHeight: `${hoursRange.length * hourHeight}px` }}
-    >
-      {hoursRange.map((h) => (
-        <div
-          key={h}
-          style={{
-            height: `${hourHeight}px`,
-            borderTop: "1px solid rgb(240, 243, 247)",
-          }}
-        >
-          <small className="position-absolute" style={{ left: 0 }}>
-            {h % 12 || 12}:00 {h < 12 ? "AM" : "PM"}
-          </small>
-        </div>
-      ))}
-
-      {timesheetRows.map((row, index) => {
-        const top = (parseTime(row.startTime) - 9) * hourHeight;
-        const height =
-          (parseTime(row.endTime) - parseTime(row.startTime)) * hourHeight;
-
-        return (
-          <div
-            key={index}
-            className="position-absolute rounded shadow-sm"
-            style={{
-              left: "120px",
-              top: `${top}px`,
-              height: `${height}px`,
-              width: "calc(100% - 120px)",
-              backgroundColor: index % 2 === 0 ? "#e6f7f5" : "#f3f4ff",
-              padding: "12px",
-              borderLeft: `6px solid ${
-                index % 2 === 0 ? "#80cbc4" : "#9fa8f7"
-              }`,
-            }}
-          >
-            <div className="fw-semibold">{row.projectName}</div>
-            <div className="text-muted small">{row.taskName}</div>
-            <div className="mt-2 d-flex justify-content-between small text-dark">
-              <span>{row.startTime}</span>
-              <span>{row.endTime}</span>
-              <span>{row.duration}</span>
-            </div>
+      {/* Timesheet Table (Separate Box) */}
+      {timesheetRows.length > 0 && (
+        <div className="mt-4 border rounded bg-white p-4">
+          <h5 className="mb-3 text-secondary">Timesheet Details</h5>
+          <div className="table-responsive">
+            <table className="table table-bordered table-striped">
+              <thead className="table-light">
+                <tr>
+                  <th>Employee</th>
+                  <th>Project</th>
+                  <th>Task</th>
+                  <th>Duration</th>
+                  <th>Start Time</th>
+                  <th>End Time</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {timesheetRows.map((row, i) => (
+                  <tr key={i}>
+                    <td>{row.employeeName}</td>
+                    <td>{row.projectName}</td>
+                    <td>{row.taskName}</td>
+                    <td>{row.duration}</td>
+                    <td>{row.startTime}</td>
+                    <td>{row.endTime}</td>
+                    <td>{row.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        );
-      })}
-    </div>
-  </div>
-)}
+        </div>
+      )}
     </div>
   );
 }
