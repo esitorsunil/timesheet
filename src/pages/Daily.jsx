@@ -97,10 +97,33 @@ export default function Daily() {
   const hoursRange = Array.from({ length: 15 }, (_, i) => 9 + i); // 9am to 11pm
   const hourHeight = 75;
 
+  const getLocalDate = (dateStr) => {
+  return new Date(dateStr + "T00:00:00");
+};
+
+const getTotalHours = (projects) => {
+  return projects.reduce((sum, project) => {
+    const taskDurations = project.tasks
+      .filter((task) => {
+        if (selectedProject && project.projectName !== selectedProject)
+          return false;
+        if (selectedTask && task.taskName !== selectedTask) return false;
+        return true;
+      })
+      .reduce((taskSum, task) => {
+        const start = parseTime(task.startTime);
+        const end = parseTime(task.endTime);
+        return taskSum + (end - start);
+      }, 0);
+    return sum + taskDurations;
+  }, 0);
+};
+
+
   return (
     <div className="container-fluid px-5 mt-4 bg-light">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="mb-0">Daily Timesheet</h2>
+        <h3 className="mb-0">Daily Timesheet</h3>
         <button
           className="btn btn-outline-success d-flex align-items-center gap-1"
           onClick={() => console.log("Add manual time")}
@@ -167,7 +190,7 @@ export default function Daily() {
               setSelectedProject("");
               setSelectedTask("");
             }}
-            isClearable
+            isClearable={false}
             placeholder="Select member"
           />
         </div>
@@ -195,11 +218,19 @@ export default function Daily() {
             >
               <BiChevronRight size={20} />
             </button>
+
+            <button
+    className="btn btn-outline-secondary btn-sm"
+    onClick={() =>
+      setSelectedDate(new Date().toISOString().split("T")[0])
+    }
+  >
+    Today
+  </button>
           </div>
         </div>
       </div>
 
-      {/* Employee Summary Cards */}
       <div className="mt-3">
         {filteredEntries.length > 0 ? (
           filteredEntries.map((entry, index) => (
@@ -213,26 +244,35 @@ export default function Daily() {
                     width="50"
                   />
                   <div>
-                    <h5 className="mb-0">{entry.employeeName}</h5>
-                    <small>
-                      {new Date(entry.date).toLocaleDateString("en-US", {
-                        weekday: "long",
-                      })}
-                    </small>
-                  </div>
-                </div>
-                <div className="text-end">
-                  <div>Total Time</div>
-                  <strong>{entry.totalHours}</strong>
-                </div>
+                    <h6 className="mb-0">{entry.employeeName}</h6>
+                    </div>
+
+                  <div className="ps-5">
+    <small className="d-block fw-semibold">
+      {getLocalDate(selectedDate).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })}
+    </small>
+    <small className="d-block text-secondary">
+      {getLocalDate(selectedDate).toLocaleDateString("en-US", {
+        weekday: "long",
+      })}
+    </small>
+  </div>
+
+  <div className="ps-5">
+    <small className="d-block fw-semibold">
+      {getTotalHours(entry.projects).toFixed(2)} hrs
+    </small>
+    <small className="d-block text-secondary">Total Time</small>
+  </div>
+              </div>
               </div>
             </div>
           ))
-        ) : (
-          <div className="">
-           
-          </div>
-        )}
+        ) : null}
       </div>
 {timesheetRows.length === 0 ? (
   <div className="d-flex flex-column align-items-center justify-content-center py-5 text-muted">
@@ -244,14 +284,22 @@ export default function Daily() {
     <h6>No timesheet entries for this date</h6>
   </div>
 ) : (
-  <div className="timeline-container bg-white rounded border p-3 mt-4 position-relative">
-    <div className="d-flex pb-2 mb-2 fw-semibold text-secondary">
-      <div style={{ width: "120px" }}></div>
-      <div className="flex-grow-1">Project & Task</div>
-      <div style={{ width: "120px" }}>Start</div>
-      <div style={{ width: "120px" }}>End</div>
-      <div style={{ width: "80px" }}>Total</div>
-    </div>
+  <div className="timeline-container bg-white rounded p-3 mt-4 position-relative">
+ <div
+  className="d-grid fw-semibold text-secondary mb-2 position-relative"
+  style={{
+    width: "calc(50% - 60px)",
+    left: "120px",
+    gridTemplateColumns: "1fr auto auto auto",
+    gap: "7em",
+    padding: "px",
+  }}
+>
+  <div >Project & Task</div>
+  <div className="pe-3">Start</div>
+  <div>End</div>
+  <div className="pe-3">Total</div>
+</div>
 
     <div
       className="position-relative"
@@ -277,29 +325,32 @@ export default function Daily() {
           (parseTime(row.endTime) - parseTime(row.startTime)) * hourHeight;
 
         return (
-          <div
-            key={index}
-            className="position-absolute rounded shadow-sm"
-            style={{
-              left: "120px",
-              top: `${top}px`,
-              height: `${height}px`,
-              width: "calc(100% - 120px)",
-              backgroundColor: index % 2 === 0 ? "#e6f7f5" : "#f3f4ff",
-              padding: "12px",
-              borderLeft: `6px solid ${
-                index % 2 === 0 ? "#80cbc4" : "#9fa8f7"
-              }`,
-            }}
-          >
-            <div className="fw-semibold">{row.projectName}</div>
-            <div className="text-muted small">{row.taskName}</div>
-            <div className="mt-2 d-flex justify-content-between small text-dark">
-              <span>{row.startTime}</span>
-              <span>{row.endTime}</span>
-              <span>{row.duration}</span>
-            </div>
-          </div>
+    <div
+  key={index}
+  className="position-absolute rounded shadow-sm d-grid align-items-center pe-2"
+  style={{
+    left: "120px",
+    top: `${top}px`,
+    height: `${height}px`,
+    width: "calc(50% - 60px)",
+    backgroundColor: index % 2 === 0 ? "#e6f7f5" : "#f3f4ff",
+    padding: "12px",
+    borderLeft: `6px solid ${index % 2 === 0 ? "#80cbc4" : "#9fa8f7"}`,
+    gridTemplateColumns: "1fr auto auto auto",
+    gap: "7rem",
+  }}
+>
+  {/* Grid Column 1: Project & Task */}
+  <div>
+    <div className="fw-semibold">{row.projectName}</div>
+    <div className="text-muted small">{row.taskName}</div>
+  </div>
+
+  {/* Grid Column 2–4: Start | End | Total */}
+  <div className="fw-semibold small text-dark">{row.startTime}</div>
+  <div className="fw-semibold small text-dark">{row.endTime}</div>
+  <div className="fw-semibold small text-dark pe-3">{row.duration}</div>
+</div>
         );
       })}
     </div>

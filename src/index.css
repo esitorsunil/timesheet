@@ -32,7 +32,6 @@ a:hover {
   border: 1px solid rgb(32, 190, 173) !important;
 }
 
-/* Remove Bootstrap focus styles and apply custom green border */
 input.form-control:focus,
 select.form-select:focus,
 .react-select__control--is-focused {
@@ -40,41 +39,11 @@ select.form-select:focus,
   box-shadow: none !important;
 }
 
-/* Apply custom green border on hover */
 input.form-control:hover,
 select.form-select:hover {
   border: 1px solid rgb(32, 190, 173) !important;
 }
 
-/* Apply custom border for react-select */
-.react-select__control {
-  border: 1px solid #ced4da;
-  transition: border-color 0.2s;
-}
-
-.react-select__control:hover {
-  border: 1px solid rgb(32, 190, 173);
-}
-
-.react-select__control--is-focused {
-  border: 1px solid rgb(32, 190, 173);
-  box-shadow: none;
-}
-/* Remove Bootstrap focus styles and apply custom green border */
-input.form-control:focus,
-select.form-select:focus,
-.react-select__control--is-focused {
-  border: 1px solid rgb(32, 190, 173) !important;
-  box-shadow: none !important;
-}
-
-/* Apply custom green border on hover */
-input.form-control:hover,
-select.form-select:hover {
-  border: 1px solid rgb(32, 190, 173) !important;
-}
-
-/* Apply custom border for react-select */
 .react-select__control {
   border: 1px solid #ced4da;
   transition: border-color 0.2s;
@@ -89,3 +58,32 @@ select.form-select:hover {
   box-shadow: none;
 }
 
+input.form-control:focus,
+select.form-select:focus,
+.react-select__control--is-focused {
+  border: 1px solid rgb(32, 190, 173) !important;
+  box-shadow: none !important;
+}
+
+input.form-control:hover,
+select.form-select:hover {
+  border: 1px solid rgb(32, 190, 173) !important;
+}
+
+.react-select__control {
+  border: 1px solid #ced4da;
+  transition: border-color 0.2s;
+}
+
+.react-select__control:hover {
+  border: 1px solid rgb(32, 190, 173);
+}
+
+.react-select__control--is-focused {
+  border: 1px solid rgb(32, 190, 173);
+  box-shadow: none;
+}
+
+.timeline-container {
+  border: 1px solid rgb(194, 204, 225);;
+}
