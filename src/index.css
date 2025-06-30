@@ -87,3 +87,22 @@ select.form-select:hover {
 .timeline-container {
   border: 1px solid rgb(194, 204, 225);;
 }
+
+.group:hover .group-hover {
+  display: flex !important;
+}
+
+.date-box {
+  height: 40px;
+  width: 40px;
+  border: 1px solid rgb(228, 231, 235);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: rgb(61, 77, 105);
+  background: rgb(252, 253, 254);
+  margin-top: 5px;
+}
+

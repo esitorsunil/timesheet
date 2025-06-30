@@ -3,134 +3,292 @@
     "daily": {
       "title": "Daily Timesheet",
       "description": "View detailed task and project breakdowns for each employee by date.",
-      "entries": [
+       "entries": [
+    {
+      "employeeId": 1,
+      "employeeName": "Alice Johnson",
+      "date": "2025-06-25",
+      "breakTime": "11:30 AM to 11:45 AM",
+      "projects": [
         {
-          "employeeId": 1,
-          "employeeName": "Alice Johnson",
-          "date": "2025-06-25",
-          "projects": [
+          "projectName": "Website Redesign",
+          "tasks": [
             {
-              "projectName": "Website Redesign",
-              "tasks": [
-                {
-                  "taskName": "UI Implementation",
-                  "startTime": "09:30 AM",
-                  "endTime": "11:30 AM",
-                  "duration": "3h"
-                },
-                {
-                  "taskName": "Responsive Testing",
-                  "startTime": "12:00 PM",
-                  "endTime": "02:00 PM",
-                  "duration": "2h"
-                }
+              "taskName": "UI Implementation",
+              "startTime": "09:30 AM",
+              "endTime": "11:30 AM",
+              "duration": "3h"
+            },
+            {
+              "taskName": "Responsive Testing",
+              "startTime": "01:00 PM",
+              "endTime": "03:00 PM",
+              "duration": "2h"
+            }
+          ]
+        }
+      ],
+      "totalHours": "5h"
+    },
+    {
+      "employeeId": 2,
+      "employeeName": "Brian Lee",
+      "date": "2025-06-25",
+      "breakTime": "12:00 PM to 01:00 PM",
+      "projects": [
+        {
+          "projectName": "Mobile App Development",
+          "tasks": [
+            {
+              "taskName": "API Integration",
+              "startTime": "09:00 AM",
+              "endTime": "12:00 PM",
+              "duration": "3h"
+            },
+            {
+              "taskName": "Unit Testing",
+              "startTime": "01:00 PM",
+              "endTime": "03:00 PM",
+              "duration": "2h"
+            }
+          ]
+        }
+      ],
+      "totalHours": "5h"
+    },
+    {
+      "employeeId": 3,
+      "employeeName": "Chris Martin",
+      "date": "2025-06-25",
+      "breakTime": "12:00 PM to 01:30 PM",
+      "projects": [
+        {
+          "projectName": "Data Migration",
+          "tasks": [
+            {
+              "taskName": "Database Backup",
+              "startTime": "10:00 AM",
+              "endTime": "12:00 PM",
+              "duration": "2h"
+            },
+            {
+              "taskName": "Data Cleanup",
+              "startTime": "01:30 PM",
+              "endTime": "03:30 PM",
+              "duration": "2h"
+            }
+          ]
+        }
+      ],
+      "totalHours": "4h"
+    },
+    {
+      "employeeId": 4,
+      "employeeName": "Diana Patel",
+      "date": "2025-06-25",
+      "breakTime": "10:00 AM to 10:30 AM",
+      "projects": [
+        {
+          "projectName": "Marketing Dashboard",
+          "tasks": [
+            {
+              "taskName": "Chart Configuration",
+              "startTime": "09:00 AM",
+              "endTime": "11:00 AM",
+              "duration": "2h"
+            },
+            {
+              "taskName": "Data Source Mapping",
+              "startTime": "12:30 PM",
+              "endTime": "03:00 PM",
+              "duration": "2.5h"
+            }
+          ]
+        }
+      ],
+      "totalHours": "4.5h"
+    },
+    {
+      "employeeId": 5,
+      "employeeName": "Ethan Thomas",
+      "date": "2025-06-25",
+      "breakTime": "11:00 AM to 11:30 AM",
+      "projects": [
+        {
+          "projectName": "Client Portal",
+          "tasks": [
+            {
+              "taskName": "Bug Fixing",
+              "startTime": "09:00 AM",
+              "endTime": "11:00 AM",
+              "duration": "2h"
+            },
+            {
+              "taskName": "Feature Enhancement",
+              "startTime": "11:30 AM",
+              "endTime": "02:00 PM",
+              "duration": "2.5h"
+            }
+          ]
+        }
+      ],
+      "totalHours": "4.5h"
+    }
+  ]
+    },
+  "weekly": {
+  "title": "Weekly Timesheet",
+  "description": "Track hours logged by each employee throughout the selected week.",
+  "range": "2025-06-24 to 2025-06-30",
+  "entries": [
+    {
+      "employeeId": 1,
+      "employeeName": "Alice Johnson",
+      "totalHours": 34,
+      "projects": [
+        {
+          "projectName": "Website Redesign",
+          "tasks": [
+            {
+              "taskName": "UI Design",
+              "daily": [
+                { "date": "2025-06-24", "hours": 2 },
+                { "date": "2025-06-25", "hours": 2 },
+                { "date": "2025-06-26", "hours": 2 }
+              ]
+            },
+            {
+              "taskName": "Prototype Review",
+              "daily": [
+                { "date": "2025-06-27", "hours": 2 },
+                { "date": "2025-06-28", "hours": 2 },
+                { "date": "2025-06-29", "hours": 2 },
+                { "date": "2025-06-30", "hours": 2 }
               ]
             }
-          ],
-          "totalHours": "5h"
-        },
-        {
-          "employeeId": 2,
-          "employeeName": "Brian Lee",
-          "date": "2025-06-25",
-          "projects": [
-            {
-              "projectName": "Mobile App Development",
-              "tasks": [
-                {
-                  "taskName": "API Integration",
-                  "startTime": "09:00 AM",
-                  "endTime": "12:00 PM",
-                  "duration": "3h"
-                },
-                {
-                  "taskName": "Unit Testing",
-                  "startTime": "01:00 PM",
-                  "endTime": "03:00 PM",
-                  "duration": "2h"
-                }
-              ]
-            }
-          ],
-          "totalHours": "5h"
-        },
-        {
-          "employeeId": 3,
-          "employeeName": "Chris Martin",
-          "date": "2025-06-25",
-          "projects": [
-            {
-              "projectName": "Data Migration",
-              "tasks": [
-                {
-                  "taskName": "Database Backup",
-                  "startTime": "10:00 AM",
-                  "endTime": "12:00 PM",
-                  "duration": "2h"
-                },
-                {
-                  "taskName": "Data Cleanup",
-                  "startTime": "01:30 PM",
-                  "endTime": "03:30 PM",
-                  "duration": "2h"
-                }
-              ]
-            }
-          ],
-          "totalHours": "4h"
-        },
-        {
-          "employeeId": 4,
-          "employeeName": "Diana Patel",
-          "date": "2025-06-25",
-          "projects": [
-            {
-              "projectName": "Marketing Dashboard",
-              "tasks": [
-                {
-                  "taskName": "Chart Configuration",
-                  "startTime": "08:00 AM",
-                  "endTime": "10:00 AM",
-                  "duration": "2h"
-                },
-                {
-                  "taskName": "Data Source Mapping",
-                  "startTime": "10:30 AM",
-                  "endTime": "01:00 PM",
-                  "duration": "2.5h"
-                }
-              ]
-            }
-          ],
-          "totalHours": "4.5h"
-        },
-        {
-          "employeeId": 5,
-          "employeeName": "Ethan Thomas",
-          "date": "2025-06-25",
-          "projects": [
-            {
-              "projectName": "Client Portal",
-              "tasks": [
-                {
-                  "taskName": "Bug Fixing",
-                  "startTime": "09:00 AM",
-                  "endTime": "11:00 AM",
-                  "duration": "2h"
-                },
-                {
-                  "taskName": "Feature Enhancement",
-                  "startTime": "11:30 AM",
-                  "endTime": "02:00 PM",
-                  "duration": "2.5h"
-                }
-              ]
-            }
-          ],
-          "totalHours": "4.5h"
+          ]
         }
       ]
     },
+    {
+      "employeeId": 2,
+      "employeeName": "Brian Lee",
+      "totalHours": 35,
+      "projects": [
+        {
+          "projectName": "Backend API",
+          "tasks": [
+            {
+              "taskName": "Endpoint Development",
+              "daily": [
+                { "date": "2025-06-24", "hours": 3 },
+                { "date": "2025-06-25", "hours": 3 },
+                { "date": "2025-06-26", "hours": 3 }
+              ]
+            },
+            {
+              "taskName": "Testing & Docs",
+              "daily": [
+                { "date": "2025-06-27", "hours": 2 },
+                { "date": "2025-06-28", "hours": 2 },
+                { "date": "2025-06-29", "hours": 2 },
+                { "date": "2025-06-30", "hours": 2 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "employeeId": 3,
+      "employeeName": "Chris Martin",
+      "totalHours": 30,
+      "projects": [
+        {
+          "projectName": "Mobile App",
+          "tasks": [
+            {
+              "taskName": "Authentication",
+              "daily": [
+                { "date": "2025-06-24", "hours": 3 },
+                { "date": "2025-06-25", "hours": 2 }
+              ]
+            },
+            {
+              "taskName": "UI Integration",
+              "daily": [
+                { "date": "2025-06-26", "hours": 2 },
+                { "date": "2025-06-27", "hours": 2 },
+                { "date": "2025-06-28", "hours": 2 },
+                { "date": "2025-06-29", "hours": 2 },
+                { "date": "2025-06-30", "hours": 2 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "employeeId": 4,
+      "employeeName": "Diana Patel",
+      "totalHours": 32,
+      "projects": [
+        {
+          "projectName": "CRM Enhancement",
+          "tasks": [
+            {
+              "taskName": "Bug Fixing",
+              "daily": [
+                { "date": "2025-06-24", "hours": 2 },
+                { "date": "2025-06-25", "hours": 2 },
+                { "date": "2025-06-26", "hours": 2 }
+              ]
+            },
+            {
+              "taskName": "Feature Planning",
+              "daily": [
+                { "date": "2025-06-27", "hours": 2.5 },
+                { "date": "2025-06-28", "hours": 2 },
+                { "date": "2025-06-29", "hours": 2 },
+                { "date": "2025-06-30", "hours": 2 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "employeeId": 5,
+      "employeeName": "Ethan Thomas",
+      "totalHours": 31.5,
+      "projects": [
+        {
+          "projectName": "E-commerce Platform",
+          "tasks": [
+            {
+              "taskName": "Cart Logic",
+              "daily": [
+                { "date": "2025-06-24", "hours": 2 },
+                { "date": "2025-06-25", "hours": 2 },
+                { "date": "2025-06-26", "hours": 2 }
+              ]
+            },
+            {
+              "taskName": "Payment Gateway",
+              "daily": [
+                { "date": "2025-06-27", "hours": 2 },
+                { "date": "2025-06-28", "hours": 2 },
+                { "date": "2025-06-29", "hours": 2 },
+                { "date": "2025-06-30", "hours": 2 }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+},
+
     "biweekly": {
       "title": "Bi-Weekly Timesheet",
       "description": "Shows team members' timesheet for a 14-day period.",

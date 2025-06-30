@@ -1,10 +1,10 @@
-// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Daily from './pages/Daily';
 import Weekly from './pages/Weekly';
 import TimesheetSidebar from './components/Sidebar';
 import BiWeekly from './pages/BiWeekly';
 import Monthly from './pages/Monthly';
+
 
 function App() {
   return (
