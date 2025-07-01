@@ -81,8 +81,8 @@ useEffect(() => {
       />
 
       <div className="rounded bg-white p-3 mt-4 shadow-sm">
-        <div className="d-flex justify-content-between align-items-center mb-3 px-2">
-          <p className="mb-0 fw-semibold text-secondary">
+        <div className="d-flex justify-content-start align-items-center mb-3 px-2 ">
+          <p className="mb-0 fw-semibold text-secondary me-5">
             {format(dateRange[0], "MMMM dd")} - {format(dateRange[dateRange.length - 1], "MMMM dd")}
           </p>
           <div className="d-inline-flex align-items-center justify-content-center px-3 py-2 rounded" style={{ backgroundColor: "#ecf0fc", height: "40px" }}>
@@ -91,14 +91,14 @@ useEffect(() => {
           </div>
         </div>
 
-        <div className="row text-center mb-2" style={{ height: "45px" }}>
-          <div className="col-2 fw-semibold text-secondary text-start" style={{ minWidth: "115px" }}></div>
+        <div className="row text-center mb-4" style={{ height: "45px" , backgroundColor:"rgb(246, 248, 249)" }}>
+          <div className=" fw-semibold text-secondary text-start"></div>
           {[...Array(7)].map((_, i) => (
-            <div key={i} className="col fw-semibold text-secondary" style={{ minWidth: "115px" }}>
+            <div key={i} className="col fw-semibold text-secondary">
               {format(dateRange[i], "EEE").toUpperCase()}
             </div>
           ))}
-          <div className="col fw-semibold text-secondary" style={{ minWidth: "115px" }}>
+          <div className="col fw-semibold text-secondary">
             Total
           </div>
         </div>
@@ -117,27 +117,24 @@ useEffect(() => {
           return (
             <div key={emp.employeeId}>
               <div className="row text-center mb-2">
-                <div className="col-2 text-start fw-semibold d-flex align-items-center" style={{ minWidth: "115px" }}>
-                  {emp.employeeName}
-                </div>
+                
                 {dateRange.slice(0, 7).map((d, idx) => {
                   const key = format(d, "yyyy-MM-dd");
                   return (
-                    <div className="col" key={key} style={{ minWidth: "115px" }}>
+                    <div className="col" key={key} >
                       {getStyledBox(hourMap[key], idx)}
                       <div className="text-muted small mt-1">{format(d, "MMM dd")}</div>
                     </div>
                   );
                 })}
-                <div className="col" style={{ minWidth: "115px" }}></div>
+                <div className="col" ></div>
               </div>
 
-              <div className="row text-center mb-3">
-                <div className="col-2" style={{ minWidth: "115px" }}></div>
+              <div className="row text-center mb-3 mt-5">
                 {dateRange.slice(7).map((d, idx) => {
                   const key = format(d, "yyyy-MM-dd");
                   return (
-                    <div className="col" key={key} style={{ minWidth: "115px" }}>
+                    <div className="col" key={key} >
                       {getStyledBox(hourMap[key], idx + 7)}
                       <div className="text-muted small mt-1">{format(d, "MMM dd")}</div>
                     </div>
